@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scritta | Entre em contato</title>
+  <meta name="description" content="Entre em contato conosco para mais informações!">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="https://scritta.com.br/" class="header__logo" aria-label="Página inicial">
+        <span data-marca>Scritta</span>
+      </a>
+
+      <button class="header__toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="header__nav" id="menu" aria-label="Menu principal">
+        <!-- Cada item leva à seção correspondente do site institucional -->
+        <ul>
+          <li><a href="https://scritta.com.br/#somos">Quem somos</a></li>
+          <li><a href="https://scritta.com.br/#solucao">Nossas soluções</a></li>
+          <li><a href="https://scritta.com.br/#cases">Cases</a></li>
+          <li><a href="https://scritta.com.br/#insights">Media Training</a></li>
+          <li><a href="https://scritta.com.br/#faz">Quem faz</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero__grid">
+
+        <!-- Texto -->
+        <div class="hero__content">
+          <h1 class="hero__title">Sua marca tem muito a dizer. Nós fazemos o mercado repercutir.</h1>
+          <hr class="divider">
+          <p class="hero__text">
+            Reputação e visibilidade são ativos vitais. Unimos a proximidade de uma agência
+            boutique com a inovação necessária para destacar sua empresa na mídia e no ambiente digital.
+          </p>
+          <p class="hero__text hero__text--strong">
+            Preencha o formulário e vamos conversar sobre a melhor estratégia de comunicação para o seu momento.
+          </p>
+
+          <ul class="social">
+            <li><a href="https://www.facebook.com/Scritta.Assessoria/" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-2.8 0-4 1.7-4 4.5V11H7v4h3v9h4v-9h3l1-4h-4V8.7c0-.5.3-.7 1-.7z"/></svg>
+            </a></li>
+            <li><a href="https://www.instagram.com/scritta.comunicacao/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2"/></svg>
+            </a></li>
+            <li><a href="https://www.linkedin.com/company/scritta-servi%C3%A7o-de-noticia/" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M4 9h4v12H4zM6 3a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM10 9h4v1.7c.6-1 1.9-2 3.9-2 4 0 4.1 2.7 4.1 6V21h-4v-5.6c0-1.4 0-3.1-2-3.1s-2 1.5-2 3V21h-4z"/></svg>
+            </a></li>
+          </ul>
+        </div>
+
+        <!-- Formulário -->
+        <div class="card">
+          <h2 class="card__title">Entre em contato</h2>
+          <hr class="divider divider--dark">
+
+          <form id="contact-form" class="form" novalidate>
+            <div class="form__group">
+              <label for="nome">Nome <span aria-hidden="true">*</span></label>
+              <input type="text" id="nome" name="nome" autocomplete="name" required minlength="2">
+              <small class="form__error" aria-live="polite"></small>
+            </div>
+
+            <div class="form__group">
+              <label for="email">E-mail <span aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+              <small class="form__error" aria-live="polite"></small>
+            </div>
+
+            <div class="form__group">
+              <label for="empresa">Empresa <span aria-hidden="true">*</span></label>
+              <input type="text" id="empresa" name="empresa" autocomplete="organization" required>
+              <small class="form__error" aria-live="polite"></small>
+            </div>
+
+            <!-- Campo invisível anti-spam (robôs preenchem, pessoas não) -->
+            <div class="form__hp" aria-hidden="true">
+              <label for="website">Não preencha</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="form__group form__group--check">
+              <input type="checkbox" id="consentimento" name="consentimento" required>
+              <label for="consentimento">Eu concordo em receber comunicações. <span aria-hidden="true">*</span></label>
+              <small class="form__error" aria-live="polite"></small>
+            </div>
+
+            <button type="submit" class="btn">
+              <span class="btn__label">Enviar</span>
+              <span class="btn__spinner" aria-hidden="true"></span>
+            </button>
+
+            <p class="form__status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="ano"></span> <span data-marca>Scritta</span>. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
