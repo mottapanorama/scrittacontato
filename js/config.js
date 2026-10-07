@@ -7,7 +7,7 @@ window.APP_CONFIG = {
   MARCA: "Scritta",
   // Caminho do logo (ex.: "img/logo.png"). Deixe vazio para mostrar o nome em texto
   LOGO: "img/logo.png",
-
+ 
   ENDPOINT_URL: "https://script.google.com/macros/s/AKfycbxlFgNt6mZaOIbDv4MyPoQOn4GnApGJUObw8OoSbNsFOqxPPtviG4FuIQPxKfCkXxuW/exec",
-  TIMEOUT_MS: 15000
+  TIMEOUT_MS: 30000
 };
