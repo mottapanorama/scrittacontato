@@ -8,6 +8,6 @@ window.APP_CONFIG = {
   // Caminho do logo (ex.: "img/logo.png"). Deixe vazio para mostrar o nome em texto
   LOGO: "img/logo.png",
 
-  ENDPOINT_URL: "https://script.google.com/macros/s/AKfycbxlFgNt6mZaOIbDv4MyPoQOn4GnApGJUObw8OoSbNsFOqxPPtviG4FuIQPxKfCkXxuW/exec",
+  ENDPOINT_URL: "https://script.google.com/macros/s/AKfycby0o-jPNWuTJy0FZkM5U1deqWpxRJ8U6L2u5iLUMq4m-4PnnWN3uQzGzdB7pMolJLfA/exec",
   TIMEOUT_MS: 30000
 };
