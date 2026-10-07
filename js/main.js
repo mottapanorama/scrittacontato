@@ -86,7 +86,7 @@
 
   async function enviarDados(dados) {
     const controle = new AbortController();
-    const timer = setTimeout(() => controle.abort(), CONFIG.TIMEOUT_MS || 15000);
+    const timer = setTimeout(() => controle.abort(), CONFIG.TIMEOUT_MS || 30000);
 
     try {
       // Envio como "form-urlencoded" evita bloqueio de CORS no Apps Script
@@ -95,9 +95,22 @@
         body: new URLSearchParams(dados),
         signal: controle.signal
       });
-      const json = await resposta.json();
+
+      // Lê como texto primeiro: se o Apps Script devolver uma página de erro,
+      // a mensagem dela aparece no diagnóstico em vez de um erro genérico.
+      const texto = await resposta.text();
+      let json;
+      try {
+        json = JSON.parse(texto);
+      } catch (e) {
+        const resumo = texto.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim().slice(0, 200);
+        throw new Error(`Resposta inesperada (HTTP ${resposta.status}): ${resumo}`);
+      }
       if (!json.ok) throw new Error(json.erro || "Erro no servidor");
       return json;
+    } catch (erro) {
+      if (erro.name === "AbortError") throw new Error("Tempo esgotado esperando a planilha responder");
+      throw erro;
     } finally {
       clearTimeout(timer);
     }
@@ -154,7 +167,9 @@
         form.reset();
       } catch (erro) {
         console.error("Falha no envio:", erro);
-        definirStatus(status, MENSAGENS.erro, "error");
+        // Modo diagnóstico: abra a página com ?debug no fim do endereço para ver o motivo
+        const detalhe = new URLSearchParams(window.location.search).has("debug") ? ` [${erro.message}]` : "";
+        definirStatus(status, MENSAGENS.erro + detalhe, "error");
       } finally {
         botao.disabled = false;
         botao.classList.remove("is-loading");
