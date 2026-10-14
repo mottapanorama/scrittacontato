@@ -94,7 +94,7 @@ ul { list-style: none; }
   letter-spacing: 0.02em;
 }
 
-.header__logo img { height: 40px; width: auto; display: block; }
+.header__logo img { height: 40px; width: 60px; display: block; }
 
 .header__nav ul { display: flex; gap: 32px; }
 
